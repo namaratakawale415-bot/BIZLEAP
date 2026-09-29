@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethics & Code | BIZLEAP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+  
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --primary-orange:#f15a24;
+    --primary-blue:#0073bc;
+    --pure-black:#000;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    line-height:1.8;
+    color:#444;
+    background:#fff;
+}
+
+/* Balanced spacing below header */
+#header-placeholder{
+    display:block;
+    margin-bottom:60px;
+}
+
+.container{
+    max-width:900px;
+    margin:0 auto;
+    padding:0 30px 70px;
+}
+
+h1,h2{
+    text-transform:uppercase;
+    color:var(--pure-black);
+}
+
+h1{
+    margin-bottom:25px;
+}
+
+.red{
+    color:var(--primary-orange);
+}
+
+.dress-code{
+    background:#000;
+    color:#fff;
+    padding:40px;
+    border-left:8px solid var(--primary-blue);
+    margin:30px 0 50px;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:15px;
+}
+
+li strong{
+    color:var(--primary-blue);
+}
+
+h2{
+    margin:40px 0 15px;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- The header will load here and stick to the very top -->
+    <div id="header-placeholder"></div>
+    
+    <div class="container">
+        <h1>Ethics & <span class="red">Code of Conduct</span></h1>
+        
+        <div class="dress-code">
+            <!-- Updated color to Brand Orange -->
+            <h2 style="color: var(--primary-orange); margin-top: 0;">Business Dress Code</h2>
+            <p>Dressing in Business Formals is mandatory for all official meetings. Casual/Semi-formal attire is not permitted.</p>
+            <ul>
+                <li><strong>MEN:</strong> Modi/Nehru Jacket OR Blazer with Tie. (No Jeans allowed).</li>
+                <li><strong>WOMEN:</strong> Business Formals (Indian or Western). No short/mini clothing allowed.</li>
+            </ul>
+        </div>
+
+        <h2>Member Guidelines</h2>
+        <ul>
+            <li><strong>Decorum:</strong> Maintain high values of language ensuring mutual respect within and outside meetings.</li>
+            <li><strong>Genuine Connections:</strong> Pass Biz Connections with a high intent of ensuring fellow member's growth.</li>
+            <li><strong>Relationships:</strong> Build long-term mutual business relationships with no short-term motives or ill-intent.</li>
+            <li><strong>Grievances:</strong> Approach the Redressal Committee or Chapter Councillor. Avoid loose talk or cross-talk with other members.</li>
+        </ul>
+    </div>
+
+    <!-- The links/footer will load here -->
+    <div id="links-placeholder"></div>
+
+    <script>
+        // Placeholder Loaders
+        fetch("header.html")
+            .then(res => res.text())
+            .then(data => { 
+                document.getElementById("header-placeholder").innerHTML = data; 
+                header.style.marginBottom="120px";   
+            });
+
+        fetch("links.html")
+            .then(res => res.text())
+            .then(data => { 
+                document.getElementById("links-placeholder").innerHTML = data; 
+            });
+
+        // --- SLIDER LOGIC ---
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const slides = document.querySelectorAll('.slide');
+
+        if(slider && slides.length > 0) {
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+            setInterval(nextSlide, 6000);
+        }
+    </script>
+
+</body>
+</html>

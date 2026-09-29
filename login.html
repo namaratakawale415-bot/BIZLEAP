@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bizleap | The Business Pinnacle</title>
+    <!-- Font Awesome for Eye Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary-orange: #f15a24; /* Official BIZ Orange */
+            --primary-blue: #0073bc;   /* Official Leap Blue */
+            --pure-black: #000000;
+            --pure-white: #ffffff;
+            --light-grey: #f0f0f0;
+            --border-grey: #e0e0e0;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-grey);
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Top Left Corner Accent */
+        .brand-corner {
+            position: absolute; top: 0; left: 0;
+            width: 0; height: 0;
+            border-style: solid; border-width: 120px 120px 0 0;
+            border-color: var(--primary-orange) transparent transparent transparent;
+            z-index: 1;
+        }
+
+        .main-container {
+            position: relative; background-color: var(--pure-white);
+            width: 950px; display: flex;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            min-height: 550px; border-radius: 4px; overflow: hidden;
+        }
+
+        /* Left Side Content */
+        .left-side {
+            flex: 1.2; padding: 60px 50px 40px 50px;
+            display: flex; flex-direction: column;
+            justify-content: space-between; border-right: 1px solid var(--border-grey);
+        }
+
+        /* Official Logo Styling */
+        .logo-container { margin-bottom: 20px; }
+        
+        .pinnacle-icon { width: 100px; margin-bottom: 10px; }
+
+        .brand-name {
+            font-size: 60px;
+            font-weight: 800;
+            letter-spacing: -3px;
+            line-height: 1;
+            display: flex;
+            align-items: baseline;
+        }
+        .biz-text { color: var(--primary-orange); text-transform: uppercase; }
+        .leap-text { color: var(--primary-blue); font-weight: 500; letter-spacing: -1px; }
+
+        .tagline-box {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+        .tagline-text {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--pure-black);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .tagline-line {
+            height: 3px;
+            width: 30px;
+            background-color: var(--primary-orange);
+            margin-left: 10px;
+        }
+
+        .brand-info { font-size: 14px; color: #333; line-height: 1.6; margin-top: 40px; }
+
+        /* Right Side Form */
+        .right-side { flex: 1; padding: 80px 50px 40px 50px; display: flex; flex-direction: column; }
+        .signin-heading { font-size: 24px; color: #444; margin-bottom: 35px; font-weight: 600; }
+
+        .form-group { margin-bottom: 20px; position: relative; }
+        label { display: block; color: var(--primary-orange); font-size: 12px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
+
+        input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 2px; font-size: 16px; box-sizing: border-box; }
+        input:focus { outline: none; border-color: var(--primary-blue); }
+
+        .eye-icon { position: absolute; right: 12px; top: 36px; cursor: pointer; color: #666; font-size: 18px; }
+        .error-text { color: var(--primary-orange); font-size: 11px; margin-top: 4px; display: none; }
+
+        .terms-check-container { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 20px; font-size: 13px; color: #555; }
+        .terms-check-container input { width: auto; margin-top: 3px; cursor: pointer; }
+
+        .btn-signin {
+            background-color: var(--primary-orange); color: var(--pure-white);
+            border: none; padding: 12px 30px; font-size: 14px;
+            font-weight: bold; cursor: pointer; width: 100%; transition: background 0.3s;
+            text-transform: uppercase;
+        }
+        .btn-signin:hover { background-color: var(--pure-black); }
+
+        .forgot-link { display: block; margin-top: 20px; color: var(--primary-orange); font-size: 13px; text-decoration: none; text-align: center; cursor: pointer; }
+        
+        /* New User / Sign Up Styling */
+        .signup-prompt { margin-top: 15px; text-align: center; font-size: 13px; color: #555; }
+        .signup-link { color: var(--primary-blue); font-weight: bold; text-decoration: none; }
+        .signup-link:hover { text-decoration: underline; }
+
+        .footer-links { font-size: 11px; color: #666; text-align: center; margin-top: auto; }
+        .link-item { color: var(--primary-orange); text-decoration: none; cursor: pointer; margin: 0 5px; font-weight: bold; }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.7);
+            z-index: 100; justify-content: center; align-items: center;
+        }
+
+        .modal-body {
+            background: white; width: 90%; max-width: 900px;
+            max-height: 85vh; padding: 50px; border-radius: 8px;
+            overflow-y: auto; position: relative;
+        }
+
+        .modal-close { position: absolute; top: 20px; right: 20px; font-size: 30px; cursor: pointer; font-weight: bold; color: var(--pure-black); }
+
+        .modal-content-area h2 { 
+            color: var(--pure-black); 
+            text-align: center; 
+            margin-bottom: 30px; 
+            text-transform: uppercase; 
+            border-bottom: 2px solid var(--primary-orange); 
+            padding-bottom: 10px;
+        }
+        .modal-content-area p { font-size: 15px; line-height: 1.8; color: #111; margin-bottom: 25px; text-align: justify; }
+    </style>
+</head>
+<body>
+
+    <div class="brand-corner"></div>
+
+    <div class="main-container">
+        <!-- Left Side Content -->
+        <div class="left-side">
+            <div class="logo-box">
+                <!-- SVG Icon Recreating the Pinnacle Arrow -->
+                <svg class="pinnacle-icon" viewBox="0 0 100 60">
+                    <path d="M10 50 L50 10 L50 35 Z" fill="#f15a24" /> <!-- Left Orange -->
+                    <path d="M50 10 L90 50 L50 35 Z" fill="#0073bc" /> <!-- Right Blue -->
+                    <path d="M40 20 L50 10 L60 20 Z" fill="#fbb03b" /> <!-- Top Yellow -->
+                    <path d="M70 40 L90 50 L75 30 Z" fill="#8cc63f" /> <!-- Small Green Bottom -->
+                </svg>
+
+                <div class="brand-name">
+                    <span class="biz-text">BIZ</span><span class="leap-text">Leap</span>
+                </div>
+                
+                <div class="tagline-box">
+                    <div class="tagline-text">The Business Pinnacle</div>
+                    <div class="tagline-line"></div>
+                </div>
+
+                <p class="brand-info">
+                    Empowering professional enterprises through structured networking and ethical growth. 
+                    Experience business development in the mood of EQUIPOISE.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <p>Copyright 2026 Bizleap. All Rights Reserved</p>
+                <span class="link-item" onclick="openPolicy('terms')">Terms & Conditions</span> | 
+                <span class="link-item" onclick="openPolicy('privacy')">Privacy Policy</span> | 
+                <span class="link-item" onclick="openPolicy('browser')">Browser Policy</span>
+            </div>
+        </div>
+
+        <!-- Right Side Form -->
+        <div class="right-side">
+            <h2 class="signin-heading">Sign-in to Bizleap</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="username" placeholder="Username" required autocomplete="off">
+                    <div id="userError" class="error-text">Only letters and numbers allowed.</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <i class="fa-solid fa-eye-slash eye-icon" id="togglePassword"></i>
+                </div>
+
+                <div class="terms-check-container">
+                    <input type="checkbox" id="agreeCheckbox" required>
+                    <label for="agreeCheckbox" style="color:#555; cursor:pointer;">
+                        I agree to the <span class="text-red" style="color:var(--primary-orange); font-weight:bold;" onclick="openPolicy('terms')">Official Policy Manual & Terms</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-signin">SIGN IN</button>
+            </form>
+            
+            <a href="forgot.html" class="forgot-link">Forgot Username or Password?</a>
+            
+            <!-- NEW USER / SIGN UP SECTION -->
+            <div class="signup-prompt">
+                Don't have an account? <a href="sign_up.html" class="signup-link">Sign up here</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Information Modal -->
+    <div id="policyModal" class="modal-overlay">
+        <div class="modal-body">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modal-content-area" class="modal-content-area">
+                <!-- Content Injected via Script -->
+            </div>
+            <button class="btn-signin" style="width: 100%; margin-top: 30px;" onclick="closeModal()">I ACCEPT AND CLOSE</button>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('policyModal');
+        const contentArea = document.getElementById('modal-content-area');
+
+        // UPDATED: Terms & Conditions now contains the full provided text
+        const policies = {
+            terms: `
+                <h2>BIZLEAP – The Business Pinnacle<br>Terms & Conditions – POLICY MANUAL</h2>
+                <p>All Rights Reserved – 2025</p>
+                <p>Bizleap – The Business Pinnacle is a structured business growth platform that enables corporates, companies, firms and professional enterprises to grow their businesses through networking, training programs, workshops and business activities organised by Bizleap and its chapters. Membership is strictly for businesses represented by authorised promoters, directors or top management personnel and not for individuals. All members agree to perform their business activities with integrity, ethical conduct, trust, gratitude and in a balanced mindset known as Equipoise, where actions are performed sincerely without attachment to outcomes.</p>
+                <p>Bizleap operates through city-based chapters, each managed by a Chapter Board consisting of a President, Vice President and Treasurer for a defined tenure. Members must attend regular chapter meetings which include business pitching, presentations, peer-to-peer meetings, trainings, guest interactions and workshops. All chapter meetings follow strict decorum including vegetarian food policy, professional dress code and respectful conduct among members.</p>
+                <p>Each member is granted exclusivity in their approved business category within their chapter. Members are expected to pass genuine business connections, maintain mutual trust, follow ethical business practices and build long-term relationships. Attendance is mandatory and absence without valid proxy or medical proof may result in warnings, probation or cancellation of membership.</p>
+                <p>All new members must undergo a formal application, background verification and approval process. Bizleap reserves the absolute right to accept or reject any membership application without assigning any reason. Membership fees are annual and subject to revision. Fees once paid are non-refundable. Chapter kitty charges must be paid quarterly and managed transparently by the Chapter Treasurer through a designated chapter bank account.</p>
+                <p>Bizleap conducts regular in-chapter trainings, regional workshops, business conclaves, trade fairs, sports events and members day celebrations. Participation in certain regional or national programs may involve additional charges. Bizleap also recognises high-performing members through clubs, awards and special privileges, including fee discounts, training access and recognition badges.</p>
+                <p>Any request for change of chapter or business category must be formally approved by the Chapter Board and Bizleap management and may involve additional fees. Members are bound to comply with all Bizleap rules, policies, ethics and procedures communicated through official channels including WhatsApp and Email. By continuing membership, members accept these policies as binding.</p>
+                <p>All rights related to policies, recognitions, fees, training formats, privileges, disciplinary actions and amendments remain solely with the management of Bizleap – The Business Pinnacle.</p>
+            `,
+            privacy: `
+                <h2>BIZLEAP – The Business Pinnacle<br>Privacy Policy</h2>
+                <p>Bizleap – The Business Pinnacle is committed to protecting the privacy and confidentiality of all its members and applicants. During the membership application and verification process, Bizleap collects essential business and personal information such as company details, authorised representative information, contact data and business category information solely for the purpose of membership assessment, chapter allocation, communication, training coordination and internal record keeping.</p>
+                <p>All information provided by members is used only for Bizleap’s official operations including membership approvals, chapter activities, business networking facilitation, training programs, recognitions, internal communications through WhatsApp, email or official platforms, and for maintaining transparency in chapter administration. Bizleap does not permit unauthorised sharing, sale or misuse of member data by any chapter, board member or third party.</p>
+                <p>Members understand that Bizleap may verify submitted information through background checks, visits to the applicant’s place of work and internal assessments. All collected data is stored and managed securely by Bizleap management and its authorised franchise or regional offices.</p>
+                <p>Bizleap reserves the right to use member information for internal analysis, improvement of services, business development programs and statutory or regulatory compliance wherever required. By submitting the membership application and continuing as a member, all individuals and organisations consent to the collection, use and processing of their information in accordance with this Privacy Policy.</p>
+            `,
+            browser: `
+                <h2>BIZLEAP – The Business Pinnacle<br>Browser Policy</h2>
+                <p>Bizleap provides its website, member portals, registration forms and digital services to be accessed through secure and updated internet browsers. To ensure data security, proper performance and uninterrupted access, users are advised to use the latest versions of commonly supported browsers such as Google Chrome, Mozilla Firefox, Microsoft Edge or Apple Safari.</p>
+                <p>Bizleap does not guarantee full functionality of its website or systems on outdated, unsupported or modified browsers, including beta versions, embedded in-app browsers or browsers with disabled cookies, scripts or security settings. Certain services such as login, payment processing, downloads, event registrations, form submissions and internal dashboards may not work properly under such conditions.</p>
+                <p>Users are solely responsible for maintaining their devices, browsers, antivirus software and internet connectivity. Bizleap shall not be held liable for any loss of data, service interruption, malware exposure, transaction failure or display errors caused by incompatible browsers, weak security settings or unauthorised third-party software.</p>
+                <p>Bizleap reserves the right to update browser compatibility requirements, restrict access from unsafe platforms, block harmful activity or suspend services where system misuse or security risk is detected. Any upgrades or changes to supported browsers may be implemented without prior notice to enhance performance, safety and system stability.</p>
+                <p>By accessing Bizleap’s digital platforms, all users confirm that they understand and accept this Browser Policy and agree to comply with all system usage guidelines laid down by Bizleap.</p>
+            `
+        };
+
+        function openPolicy(type) {
+            contentArea.innerHTML = policies[type];
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() { modal.style.display = 'none'; }
+
+        // Eye Toggle Functionality
+        const togglePassword = document.querySelector('#togglePassword');
+        const passwordInput = document.querySelector('#password');
+        togglePassword.addEventListener('click', function () {
+            const isPassword = passwordInput.getAttribute('type') === 'password';
+            passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        // Username Alphanumeric Validation
+        const usernameInput = document.getElementById('username');
+        const userError = document.getElementById('userError');
+        usernameInput.addEventListener('input', function() {
+            const regex = /^[a-zA-Z0-9]*$/;
+            userError.style.display = regex.test(this.value) ? 'none' : 'block';
+        });
+
+        // Form Submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!/^[a-zA-Z0-9]+$/.test(usernameInput.value)) { alert("Username invalid."); return; }
+            if (!document.getElementById('agreeCheckbox').checked) { alert("Please agree to the Policy Manual and Terms."); return; }
+            alert('Welcome! Redirecting...');
+            window.location.href = "index.html"; 
+        });
+
+        window.onclick = function(event) { if (event.target == modal) closeModal(); }
+    </script>
+</body>
+</html>

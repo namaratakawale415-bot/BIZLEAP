@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recover Account | Bizleap</title>
+    <style>
+        :root {
+            --primary-orange: #f15a24; /* Official BIZ Orange */
+            --primary-blue: #0073bc;   /* Official Leap Blue */
+            --pure-black: #000000;
+            --pure-white: #ffffff;
+            --light-grey: #f0f0f0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-grey);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Orange Corner Accent to match the Brand */
+        .brand-corner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 100px 100px 0 0;
+            border-color: var(--primary-orange) transparent transparent transparent;
+            z-index: 1;
+        }
+
+        .recovery-card {
+            background-color: var(--pure-white);
+            width: 450px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Official Logo Styling */
+        .logo-container { 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 25px; 
+        }
+        
+        .pinnacle-icon { width: 80px; margin-bottom: 10px; }
+
+        .brand-name {
+            font-size: 45px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+            display: flex;
+            align-items: baseline;
+        }
+        .biz-text { color: var(--primary-orange); text-transform: uppercase; }
+        .leap-text { color: var(--primary-blue); font-weight: 500; letter-spacing: -1px; }
+
+        .tagline-box {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+        .tagline-text {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--pure-black);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .tagline-line {
+            height: 2px;
+            width: 20px;
+            background-color: var(--primary-orange);
+            margin-left: 8px;
+        }
+
+        h2 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            color: var(--primary-orange);
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .btn-recover {
+            background-color: var(--primary-orange);
+            color: var(--pure-white);
+            border: none;
+            padding: 14px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-recover:hover {
+            background-color: var(--pure-black);
+        }
+
+        .back-to-login {
+            display: inline-block;
+            margin-top: 25px;
+            color: var(--primary-orange);
+            font-size: 13px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-to-login:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="brand-corner"></div>
+
+    <div class="recovery-card">
+        <!-- Official Logo Section -->
+        <div class="logo-container">
+            <svg class="pinnacle-icon" viewBox="0 0 100 60">
+                <path d="M10 50 L50 10 L50 35 Z" fill="#f15a24" /> <!-- Left Orange -->
+                <path d="M50 10 L90 50 L50 35 Z" fill="#0073bc" /> <!-- Right Blue -->
+                <path d="M40 20 L50 10 L60 20 Z" fill="#fbb03b" /> <!-- Top Yellow -->
+                <path d="M70 40 L90 50 L75 30 Z" fill="#8cc63f" /> <!-- Small Green Bottom -->
+            </svg>
+
+            <div class="brand-name">
+                <span class="biz-text">BIZ</span><span class="leap-text">Leap</span>
+            </div>
+            
+            <div class="tagline-box">
+                <div class="tagline-text">The Business Pinnacle</div>
+                <div class="tagline-line"></div>
+            </div>
+        </div>
+
+        <h2>Forgot Password?</h2>
+        <p>Enter your registered email address or Username below. We will send you a secure link to reset your account credentials.</p>
+
+        <!-- Recovery Form -->
+        <form id="recoveryForm">
+            <div class="form-group">
+                <label>Registered Email or Username</label>
+                <input type="text" id="recoveryInput" placeholder="Enter your details" required>
+            </div>
+
+            <button type="submit" class="btn-recover">Reset Password</button>
+        </form>
+
+        <a href="login.html" class="back-to-login">← Back to login</a>
+    </div>
+
+    <script>
+        document.getElementById('recoveryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const inputVal = document.getElementById('recoveryInput').value;
+            
+            alert('If an account is associated with ' + inputVal + ', a reset link will be sent shortly.');
+            
+            // Redirect back to main login page after a delay
+            setTimeout(function() {
+                window.location.href = "index.html";
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | Bizleap</title>
+    <!-- Font Awesome for Eye Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary-orange: #f15a24; /* Official BIZ Orange */
+            --primary-blue: #0073bc;   /* Official Leap Blue */
+            --pure-black: #000000;
+            --pure-white: #ffffff;
+            --light-grey: #f0f0f0;
+            --border-grey: #e0e0e0;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-grey);
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Red Corner Accent */
+        .red-corner {
+            position: absolute; top: 0; left: 0;
+            width: 0; height: 0;
+            border-style: solid; border-width: 120px 120px 0 0;
+            border-color: var(--primary-orange) transparent transparent transparent;
+            z-index: 1;
+        }
+
+        .main-container {
+            position: relative; background-color: var(--pure-white);
+            width: 950px; display: flex;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            min-height: 600px; border-radius: 4px; overflow: hidden;
+        }
+
+        /* Left Side (Branding) */
+        .left-side {
+            flex: 1.2; padding: 60px 50px;
+            display: flex; flex-direction: column;
+            justify-content: center; border-right: 1px solid var(--border-grey);
+        }
+
+        /* Official Logo Styling */
+        .logo-container { margin-bottom: 30px; }
+        
+        .pinnacle-icon { width: 120px; margin-bottom: 10px; }
+
+        .brand-name {
+            font-size: 65px;
+            font-weight: 800;
+            letter-spacing: -3px;
+            line-height: 1;
+            display: flex;
+            align-items: baseline;
+        }
+        .biz-text { color: var(--primary-orange); text-transform: uppercase; }
+        .leap-text { color: var(--primary-blue); font-weight: 500; letter-spacing: -1px; }
+
+        .tagline-box {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+        .tagline-text {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--pure-black);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .tagline-line {
+            height: 3px;
+            width: 30px;
+            background-color: var(--primary-orange);
+            margin-left: 10px;
+        }
+
+        .brand-info { font-size: 14px; color: #555; line-height: 1.6; margin-top: 30px; }
+
+        /* Right Side (Form) */
+        .right-side { flex: 1; padding: 60px 50px; }
+        .form-heading { font-size: 28px; color: #333; margin-bottom: 30px; font-weight: 700; }
+
+        .form-group { margin-bottom: 15px; position: relative; }
+        label { display: block; color: var(--primary-orange); font-size: 12px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
+
+        input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 2px; font-size: 15px; box-sizing: border-box; background: #fff; }
+        input:focus { outline: none; border-color: var(--primary-blue); }
+
+        .eye-icon { position: absolute; right: 12px; top: 34px; cursor: pointer; color: #666; font-size: 16px; }
+
+        .error-text { color: var(--primary-orange); font-size: 11px; font-weight: bold; margin-top: 5px; display: none; line-height: 1.4; }
+
+        .btn-signup {
+            background-color: var(--d62027); /* Keeping button red for action */
+            background: #d62027;
+            color: var(--pure-white);
+            border: none; padding: 14px; font-size: 15px;
+            font-weight: bold; cursor: pointer; width: 100%; transition: background 0.3s;
+            margin-top: 20px; text-transform: uppercase;
+        }
+        .btn-signup:hover { background-color: var(--pure-black); }
+
+        .login-link { display: block; margin-top: 20px; color: var(--primary-orange); font-size: 13px; text-decoration: none; text-align: center; }
+        .footer-copyright { font-size: 11px; color: #999; text-align: center; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <div class="red-corner"></div>
+
+    <div class="main-container">
+        <!-- Left Side -->
+        <div class="left-side">
+            <div class="logo-container">
+                <!-- SVG Icon Recreating the Pinnacle Arrow -->
+                <svg class="pinnacle-icon" viewBox="0 0 100 60">
+                    <path d="M10 50 L50 10 L50 35 Z" fill="#f15a24" /> <!-- Left Orange -->
+                    <path d="M50 10 L90 50 L50 35 Z" fill="#0073bc" /> <!-- Right Blue -->
+                    <path d="M40 20 L50 10 L60 20 Z" fill="#fbb03b" /> <!-- Top Yellow -->
+                    <path d="M70 40 L90 50 L75 30 Z" fill="#8cc63f" /> <!-- Small Green Bottom -->
+                </svg>
+
+                <div class="brand-name">
+                    <span class="biz-text">BIZ</span><span class="leap-text">Leap</span>
+                </div>
+                
+                <div class="tagline-box">
+                    <div class="tagline-text">The Business Pinnacle</div>
+                    <div class="tagline-line"></div>
+                </div>
+
+                <p class="brand-info">
+                    Empowering professional enterprises through structured networking and ethical growth. 
+                    Experience business development in the mood of EQUIPOISE.
+                </p>
+            </div>
+            <div class="footer-copyright">Copyright 2026 Bizleap. All Rights Reserved</div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="right-side">
+            <h2 class="form-heading">Create Account</h2>
+            
+            <form id="registerForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="regName" placeholder=" " required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="regEmail" placeholder=" " required>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="regPass" placeholder="Enter password " required>
+                    <i class="fa-solid fa-eye-slash eye-icon" onclick="togglePassword('regPass', this)"></i>
+                    <div id="complexityError" class="error-text">
+                        Must contain: Minimum 8 characters, 1 Uppercase, 1 Lowercase, 1 Number, 1 Special Character.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="regConfirmPass" placeholder="Confirm password " required>
+                    <i class="fa-solid fa-eye-slash eye-icon" onclick="togglePassword('regConfirmPass', this)"></i>
+                    <div id="passwordError" class="error-text">Wrong password, try again</div>
+                </div>
+
+                <button type="submit" class="btn-signup">Sign Up</button>
+            </form>
+
+            <a href="login.html" class="login-link">Already have an account? Login here</a>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword(inputId, icon) {
+            const input = document.getElementById(inputId);
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            } else {
+                input.type = "password";
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            }
+        }
+
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            const pass = document.getElementById('regPass').value;
+            const confirmPass = document.getElementById('regConfirmPass').value;
+            
+            const complexityError = document.getElementById('complexityError');
+            const matchError = document.getElementById('passwordError');
+            
+            const passField = document.getElementById('regPass');
+            const confirmField = document.getElementById('regConfirmPass');
+
+            // Logic: 8+ characters, Upper, Lower, Number, Special
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/;
+
+            if (!regex.test(pass)) {
+                complexityError.style.display = 'block';
+                passField.style.borderColor = "#d62027";
+                return; 
+            } else {
+                complexityError.style.display = 'none';
+                passField.style.borderColor = "#ccc";
+            }
+
+            if (pass !== confirmPass) {
+                matchError.style.display = 'block';
+                confirmField.style.borderColor = "#d62027";
+                return; 
+            } else {
+                matchError.style.display = 'none';
+                confirmField.style.borderColor = "#ccc";
+                
+                alert("Account created successfully!");
+                window.location.href = "index.html"; 
+            }
+        });
+
+        document.getElementById('regPass').addEventListener('input', function() {
+            document.getElementById('complexityError').style.display = 'none';
+            this.style.borderColor = "#ccc";
+        });
+
+        document.getElementById('regConfirmPass').addEventListener('input', function() {
+            document.getElementById('passwordError').style.display = 'none';
+            this.style.borderColor = "#ccc";
+        });
+    </script>
+</body>
+</html>

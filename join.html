@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us | BIZLEAP - The Business Pinnacle</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+     <style>
+        :root {
+            /* Official Bizleap Colors */
+            --primary-orange: #f15a24;
+            --primary-blue: #0073bc;
+            --primary-black: #000000;
+            --soft-grey: #f4f4f4;
+            --dark-grey: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background-color: #fff; color: #000; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; transition: 0.3s; }
+    
+        /* --- 1. PAGE TITLE BANNER --- */
+        .page-title-banner { 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img_join1.avif');
+            background-size: cover; background-position: center; padding: 80px 0; color: white; text-align: center;
+            border-bottom: 5px solid var(--primary-orange);
+        }
+        .page-title-banner h1 { font-size: 38px; text-transform: uppercase; font-weight: 900; letter-spacing: 2px; }
+    
+        /* --- 2. WHO CAN JOIN --- */
+        .who-section { padding: 80px 0; background: #fff; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 30px; text-transform: uppercase; font-weight: 800; color: var(--primary-black); }
+        .section-header .line { width: 80px; height: 4px; background: var(--primary-orange); margin: 15px auto; }
+
+        .eligibility-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: center; }
+        .eligibility-card { padding: 40px 25px; border: 1px solid #eee; transition: 0.3s; border-bottom: 3px solid transparent; }
+        .eligibility-card:hover { border-color: var(--primary-blue); box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-bottom-color: var(--primary-blue); }
+        .eligibility-card i { font-size: 40px; color: var(--primary-blue); margin-bottom: 20px; }
+        .eligibility-card h4 { font-weight: 800; text-transform: uppercase; margin-bottom: 10px; }
+
+        /* --- 3. JOINING PROCESS --- */
+        .process-section { padding: 80px 0; background: var(--soft-grey); }
+        .process-steps { display: flex; justify-content: space-between; gap: 20px; margin-top: 40px; }
+        .step { flex: 1; position: relative; text-align: center; }
+        .step-num { width: 60px; height: 60px; background: var(--primary-black); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; font-size: 20px; border: 4px solid var(--primary-orange); }
+        .step h5 { text-transform: uppercase; font-weight: 800; font-size: 14px; margin-bottom: 10px; }
+        .step p { font-size: 12px; color: #666; }
+
+        /* --- 4. MEMBERSHIP FEES --- */
+        .fees-section { padding: 80px 0; }
+        .pricing-table { width: 100%; border-collapse: collapse; margin-top: 30px; }
+        .pricing-table th { background: var(--primary-black); color: white; padding: 20px; text-align: left; text-transform: uppercase; font-size: 14px; border-bottom: 3px solid var(--primary-blue); }
+        .pricing-table td { padding: 20px; border-bottom: 1px solid #eee; font-weight: 600; }
+        .pricing-table tr:hover { background: #fdfdfd; color: var(--primary-orange); }
+        .gst-note { margin-top: 20px; font-size: 12px; color: #888; font-style: italic; }
+
+        /* --- 5. MEETING STRUCTURE --- */
+        .meeting-section { padding: 80px 0; background: var(--primary-black); color: white; border-top: 5px solid var(--primary-blue); }
+        .meeting-flex { display: flex; gap: 40px; margin-top: 40px; }
+        .meeting-box { flex: 1; padding: 40px; border: 1px solid #333; position: relative; transition: 0.3s; }
+        .meeting-box:first-child { border-top: 4px solid var(--primary-orange); }
+        .meeting-box:last-child { border-top: 4px solid var(--primary-blue); }
+        
+        .meeting-box h4 { color: var(--primary-orange); text-transform: uppercase; font-weight: 800; margin-bottom: 20px; font-size: 20px; }
+        .meeting-box:last-child h4 { color: var(--primary-blue); }
+        
+        .meeting-box ul li { margin-bottom: 10px; font-size: 14px; list-style: none; display: flex; justify-content: space-between; border-bottom: 1px solid #222; padding-bottom: 5px; }
+        .veg-notice { margin-top: 30px; color: #8cc63f; font-weight: 700; text-transform: uppercase; font-size: 12px; }
+
+        /* --- 6. ENQUIRY FORM --- */
+        .enquiry-section { padding: 80px 0; }
+        .form-wrapper { max-width: 800px; margin: 0 auto; background: #fff; padding: 50px; border: 1px solid #eee; border-top: 6px solid var(--primary-orange); box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-wrapper input, .form-wrapper select, .form-wrapper textarea { width: 100%; padding: 15px; border: 1px solid #ddd; margin-bottom: 5px; outline: none; }
+        .form-wrapper input:focus, .form-wrapper select:focus { border-color: var(--primary-blue); }
+        
+        .form-wrapper button { width: 100%; background: var(--primary-orange); color: white; padding: 18px; border: none; font-weight: 800; text-transform: uppercase; cursor: pointer; margin-top: 20px; letter-spacing: 2px; transition: 0.3s; }
+        .form-wrapper button:hover { background: var(--primary-black); }
+
+        @media (max-width: 768px) {
+            .eligibility-grid, .process-steps, .meeting-flex, .form-grid { grid-template-columns: 1fr; flex-direction: column; }
+            .step::after { display: none; }
+        }
+    </style> 
+
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- PAGE TITLE BANNER -->
+    <section class="page-title-banner">
+        <div class="container">
+            <h1>Join The Pinnacle</h1>
+        </div>
+    </section>
+
+    <!-- SECTION 1: WHO CAN JOIN -->
+    <section class="who-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Who Can Join?</h2>
+                <div class="line"></div>
+                <p>Bizleap is an exclusive fraternity for high-growth enterprises.</p>
+            </div>
+            <div class="eligibility-grid">
+                <div class="eligibility-card">
+                    <i class="fas fa-building"></i>
+                    <h4>Corporates Only</h4>
+                    <p>Membership is for Companies, Firms, and Professionals. Individuals are not eligible.</p>
+                </div>
+                <div class="eligibility-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h4>Top-Level Reps</h4>
+                    <p>Must be represented by a Promoter, Director, Partner, or Top-Managerial executive.</p>
+                </div>
+                <div class="eligibility-card">
+                    <i class="fas fa-star"></i>
+                    <h4>Category Exclusivity</h4>
+                    <p>100% exclusivity for your business niche within the chapter. No competition allowed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: JOINING PROCESS -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Joining Process</h2>
+                <div class="line"></div>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h5>Application</h5>
+                    <p>Fill out the detailed application form for background verification.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h5>Assessment</h5>
+                    <p>Review by the Chapter VP & Observatory Committee, including a site visit.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h5>Final Approval</h5>
+                    <p>Presidential overview and final management approval of the application.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <h5>Induction</h5>
+                    <p>Subscription payment and official Oath administered in the chapter meeting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: MEMBERSHIP FEES -->
+    <section class="fees-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Membership Fees</h2>
+                <div class="line"></div>
+            </div>
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Membership Type</th>
+                        <th>Annual Fee</th>
+                        <th>One-Time Registration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Corporate Membership (Single Rep)</td>
+                        <td>₹25,000</td>
+                        <td>₹3,500</td>
+                    </tr>
+                    <tr>
+                        <td>Corporate Membership (Dual Rep)</td>
+                        <td>₹45,000</td>
+                        <td>₹7,000</td>
+                    </tr>
+                    <tr>
+                        <td>3 Representatives (3 Chapters)</td>
+                        <td>₹67,500</td>
+                        <td>₹13,500</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="gst-note">
+                *Local GST/Taxes are extra as applicable. Fees include Laptop Bag, Diary, Pen, and Badge.
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: MEETING STRUCTURE -->
+    <section class="meeting-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color:white">Meeting Structure</h2>
+                <div class="line"></div>
+                <p>Maintaining discipline through structured engagement.</p>
+            </div>
+            <div class="meeting-flex">
+                <!-- Dinner -->
+                <div class="meeting-box">
+                    <h4>1st Week: Dinner Meeting</h4>
+                    <ul>
+                        <li><span>Open Networking</span> <span>6:30 PM - 7:00 PM</span></li>
+                        <li><span>Business Meeting</span> <span>7:00 PM - 9:00 PM</span></li>
+                        <li><span>Dinner</span> <span>9:00 PM Onwards</span></li>
+                    </ul>
+                </div>
+                <!-- Breakfast -->
+                <div class="meeting-box">
+                    <h4>3rd Week: Breakfast Meeting</h4>
+                    <ul>
+                        <li><span>Open Networking</span> <span>7:00 AM - 7:30 AM</span></li>
+                        <li><span>Business Meeting</span> <span>7:30 AM - 9:30 AM</span></li>
+                        <li><span>Breakfast</span> <span>9:30 AM Onwards</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align:center">
+                <p class="veg-notice"><i class="fas fa-leaf"></i> Pure Vegetarian Menu promoting kindness to all living entities. Jain/Vaishnav options included.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: ENQUIRY FORM -->
+    <section class="enquiry-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <h2 style="text-align:center; text-transform:uppercase; font-weight:900; margin-bottom:30px;">Membership Enquiry</h2>
+                <form>
+                    <div class="form-grid">
+                        <input type="text" placeholder="Authorized Rep Name*" required>
+                        <input type="text" placeholder="Company Name*" required>
+                        <input type="text" placeholder="Designation (Director/Partner)*" required>
+                        <input type="text" placeholder="Business Category*" required>
+                        <input type="email" placeholder="Email Address*" required>
+                        <input type="tel" placeholder="Mobile Number*" required>
+                    </div>
+                    <textarea rows="4" placeholder="Briefly describe your business products/services..."></textarea>
+                    <button type="submit">Submit Membership Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="header-placeholder"></div>
+    <div id="links-placeholder"></div>
+
+    <script>
+        // Load Header
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header-placeholder").innerHTML = data;
+            })
+            .catch(error => console.log("Header load error:", error));
+
+        // Load Footer/Links
+        fetch("links.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("links-placeholder").innerHTML = data;
+            })
+            .catch(err => console.error('Error loading links:', err));
+    </script>
+
+</body>
+</html>

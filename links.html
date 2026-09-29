@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIZLEAP - The Business Pinnacle™</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Updated to Official Branding Colors */
+            --primary-orange: #f15a24;
+            --primary-blue: #0073bc;
+            --primary-black: #000000;
+            --light-bg: #f9f9f9; 
+            --white: #ffffff;
+            --text-grey: #444444;
+            --border-color: #eeeeee;
+        }
+    
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { line-height: 1.6; color: var(--text-grey); background-color: var(--white); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; transition: 0.3s ease; }
+        ul { list-style: none; }
+
+        /* --- RESOURCE SECTION --- */
+        .resource-section { padding: 80px 0; background: #fff; }
+        .resource-card-container { display: flex; gap: 30px; }
+        .links-sidebar { flex: 1; border: 1px solid #f0f0f0; padding: 40px; background: #fff; border-top: 4px solid var(--primary-blue); }
+        .links-sidebar h4 { color: var(--primary-black); font-size: 18px; margin-bottom: 25px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;}
+        .links-sidebar ul li { border-bottom: 1px solid #f5f5f5; padding: 12px 0; }
+        .links-sidebar ul li a { color: var(--primary-black); font-weight: 700; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Updated Hover to Orange */
+        .links-sidebar ul li a:hover { color: var(--primary-orange); }
+
+        .grid-cards { flex: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .g-item { position: relative; height: 180px; overflow: hidden; border: 1px solid #eee; }
+        .g-item img { width: 100%; height: 100%; object-fit: cover; }
+        .g-item .label { 
+            position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); 
+            background: var(--white); padding: 10px 0; font-weight: 800; color: var(--primary-black); 
+            width: 60%; text-align: center; text-transform: uppercase; font-size: 13px; 
+            letter-spacing: 2px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--primary-orange);
+        }
+
+
+        /* --- LATEST SECTION --- */
+        .latest-section { padding: 80px 0; background: white; border-top: 1px solid #eee; }
+        .latest-header { text-align: center; margin-bottom: 50px; }
+        .latest-header h2 { color: var(--primary-black); font-size: 32px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* Updated span to Brand Blue */
+        .latest-header h2 span { color: var(--primary-blue); }
+        
+        .events-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .event-item { display: flex; flex-direction: column; }
+
+        .event-card { 
+            position: relative; height: 320px; overflow: hidden; color: white; 
+            display: flex; align-items: flex-end; padding: 20px; border-radius: 2px;
+        }
+        .event-card img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .event-card:hover img { transform: scale(1.1); }
+        .event-card::before { 
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            background: linear-gradient(transparent, rgba(0,0,0,0.9)); z-index: 2; 
+        }
+        .event-text { position: relative; z-index: 3; }
+        
+        /* Updated Text Color to Brand Orange */
+        .event-text span { font-size: 11px; color: var(--primary-orange); font-weight: 800; text-transform: uppercase; display: block; margin-bottom: 5px; }
+        .event-text h4 { text-transform: uppercase; font-weight: 800; font-size: 18px; line-height: 1.2; letter-spacing: 0.5px; }
+
+        .event-info-bottom { padding: 15px 5px; }
+        .event-info-bottom p { font-size: 12px; color: #777; line-height: 1.6; font-weight: 500; }
+
+        /* --- PHILOSOPHY (EQUIPOISE) SECTION --- */
+        .policy-info-section { padding: 80px 0; background: var(--light-bg); border-top: 1px solid #eee; text-align: center; }
+        .philosophy-content { max-width: 800px; margin: 0 auto; }
+        .philosophy-content h3 { font-size: 24px; font-weight: 900; margin-bottom: 25px; color: var(--primary-black); text-transform: uppercase; letter-spacing: 1px; }
+        .philosophy-content p { font-size: 15px; color: #555; line-height: 1.8; margin-bottom: 20px; font-style: italic; }
+        
+        /* Updated emphasis color to Brand Blue */
+        .philosophy-content strong { color: var(--primary-blue); font-weight: 800; }
+
+        /* --- FOOTER --- */
+        footer { background: var(--primary-black); color: white; padding: 60px 0 30px; border-top: 5px solid var(--primary-orange); }
+        .footer-bottom { border-top: 1px solid #222; margin-top: 40px; padding-top: 30px; text-align: center; }
+        .footer-bottom p { font-size: 11px; color: #888; letter-spacing: 1px; text-transform: uppercase; }
+        .legal-text { max-width: 1000px; margin: 0 auto 30px; font-size: 12px; color: #777; line-height: 1.6; text-align: center; }
+
+        @media (max-width: 992px) {
+            .events-grid { grid-template-columns: 1fr 1fr; }
+            .resource-card-container { flex-direction: column; }
+        }
+        @media (max-width: 600px) {
+            .events-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- RESOURCE SECTION -->
+    <section class="resource-section">
+        <div class="container">
+            <div class="resource-card-container">
+                <div class="links-sidebar">
+                    <h4>Links & Policy</h4>
+                    <ul>
+                        <li><a href="ethics.html">Ethics & Code <span>→</span></a></li>
+                        <li><a href="chapters.html">Chapters Forming <span>→</span></a></li>
+                        <li><a href="testimonial.html">Testimonials <span>→</span></a></li>
+                    </ul>
+                </div>
+                <div class="grid-cards">
+                    <div class="g-item">
+                        <img src="img_links.jpg">
+                        <div class="label">BIZLEAP</div>
+                    </div>
+                    <div class="g-item">
+                        <img src="img_links1.jpg">
+                        <div class="label">Podcast</div>
+                    </div>
+                    <div class="g-item">
+                        <img src="img_links2.jpg">
+                        <div class="label">Foundation</div>
+                    </div>
+                    <div class="g-item">
+                        <img src="img_links3.jpg">
+                        <div class="label">BIZLEAP U</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE LATEST SECTION -->
+    <section class="latest-section">
+        <div class="container">
+            <div class="latest-header">
+                <h2>LATEST FROM <span>BIZLEAP</span></h2>
+            </div>
+            
+            <div class="events-grid">
+                <div class="event-item">
+                    <div class="event-card">
+                        <img src="img_links4.jpg">
+                        <div class="event-text">
+                            <span>NOV 4TH</span>
+                            <h4>Bizleap Day</h4>
+                        </div>
+                    </div>
+                    <div class="event-info-bottom">
+                        <p>Our annual flagship celebration and Founder's Day honoring the launch of our flagship chapter, ASPIRE.</p>
+                    </div>
+                </div>
+
+                <div class="event-item">
+                    <div class="event-card">
+                        <img src="img_links5.jpg">
+                        <div class="event-text">
+                            <span>ANNUAL SPORT</span>
+                            <h4>Corporate Premier League</h4>
+                        </div>
+                    </div>
+                    <div class="event-info-bottom">
+                        <p>A sporting event promoting synergy between region's leading corporates and our growing business community.</p>
+                    </div>
+                </div>
+
+                <div class="event-item">
+                    <div class="event-card">
+                        <img src="img_links6.jpg">
+                        <div class="event-text">
+                            <span>3-DAY EVENT</span>
+                            <h4>Annual Trade Fair</h4>
+                        </div>
+                    </div>
+                    <div class="event-info-bottom">
+                        <p>Providing a state-of-the-art platform for members to showcase products and services to the local city market.</p>
+                    </div>
+                </div>
+
+                <div class="event-item">
+                    <div class="event-card">
+                        <img src="img_links7.jpg">
+                        <div class="event-text">
+                            <span>REGIONAL</span>
+                            <h4>Business Conclaves</h4>
+                        </div>
+                    </div>
+                    <div class="event-info-bottom">
+                        <p>Structured 1-day events featuring conclaves and P2P platforms for regional business expansion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY SECTION (EQUIPOISE) -->
+    <section class="policy-info-section">
+        <div class="container">
+            <div class="philosophy-content">
+                <h3>Mood of <strong>EQUIPOISE</strong></h3>
+                <p>
+                    Bizleap believes that all stipulated responsibilities are to be performed in the mood of <strong>EQUIPOISE</strong>—an even state of mind without attachment to success or failure, completely detached to results of actions which are directly linked to ecstasy or sorrow.
+                </p>
+                <p>
+                    As per BG 2.47-2.48, we believe that executing our prescribed actions is in our hands but not in our control, and neither do we control the outcome of such actions. All acts should be performed in a mood of goodness, spiritually guided, and detached from fruitive results.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="legal-text">
+                “Bizleap - The Business Pinnacle” is a Business Growth platform for structured business growth of its members, 
+                using the network formed within Bizleap, backed by training programs and workshops related to functions, 
+                soft skills, and spiritual growth. All rights reserved per Policy Manual 2025.
+            </div>
+            <div class="footer-bottom">
+                <p style="font-weight: 800; color: #fff; margin-bottom: 10px; letter-spacing: 2px;">Bizleap - The Business Pinnacle</p>
+                <p>All rights reserved, 2025 © BIZLEAP</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

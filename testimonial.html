@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Achievements | BIZLEAP</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- 1. THE GAP FIX (RESET) --- */
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --primary-orange:#f15a24;
+    --primary-blue:#0073bc;
+    --pure-black:#000000;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    line-height:1.8;
+    background:#f8f9fa;
+    color:#333;
+}
+
+/* Balanced spacing below header */
+#header-placeholder{
+    display:block;
+    margin-bottom:60px;
+}
+
+/* --- 2. CONTAINER SPACING --- */
+.container{
+    max-width:900px;
+    margin:0 auto;
+    padding:0 20px 80px;
+}
+
+/* --- 3. PAGE TITLE --- */
+.page-header{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.page-header h1{
+    font-size:36px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:-0.5px;
+    color:var(--pure-black);
+}
+
+.red{
+    color:var(--primary-orange);
+}
+
+/* --- 4. ENHANCED QUOTE CARDS --- */
+.quote-card{
+    background:#fff;
+    padding:50px;
+    border-radius:8px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    margin-bottom:40px;
+    position:relative;
+    border-left:5px solid var(--primary-orange);
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quote-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 40px rgba(0,0,0,0.1);
+    border-left-color:var(--primary-blue);
+}
+
+.quote-card i.fa-quote-left{
+    position:absolute;
+    top:20px;
+    left:20px;
+    font-size:40px;
+    color:rgba(0,115,188,0.1);
+}
+
+.quote-card h4{
+    color:var(--pure-black);
+    font-weight:800;
+    text-transform:uppercase;
+    font-size:18px;
+    margin:0 0 15px;
+    letter-spacing:0.5px;
+}
+
+.quote-card p{
+    font-style:italic;
+    color:#555;
+    font-size:17px;
+    line-height:1.8;
+    position:relative;
+    z-index:1;
+}
+
+.author{
+    font-weight:800;
+    text-transform:uppercase;
+    display:block;
+    margin-top:25px;
+    color:var(--primary-blue);
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+@media(max-width:600px){
+    .quote-card{padding:30px;}
+    .page-header h1{font-size:28px;}
+}
+    </style>
+</head>
+<body>
+
+    <!-- Header Injection -->
+    <div id="header-placeholder"></div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Member <span class="red">Achievements</span></h1>
+        </div>
+        
+        <!-- Testimonial 1 -->
+        <div class="quote-card">
+            <i class="fa-solid fa-quote-left"></i>
+            <h4>Master Connector Recognition</h4>
+            <p>"Passing 1 Crore in business received via Bizleap connections felt incredible. Being a part of the Master Blaster Club isn't just a title—it's a sign of a thriving community."</p>
+            <span class="author">— Silver Club Member</span>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="quote-card">
+            <i class="fa-solid fa-quote-left"></i>
+            <h4>Structured Growth</h4>
+            <p>"The 10-Talks presentation allowed me to educate the entire chapter about my specialized category. Within two weeks, my Biz Connections tripled."</p>
+            <span class="author">— Chapter Board Member</span>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="quote-card">
+            <i class="fa-solid fa-quote-left"></i>
+            <h4>Equipoise Philosophy</h4>
+            <p>"Bizleap taught me to perform my business duties with enthusiasm while remaining detached from results. This 'even state of mind' has fundamentally changed how I run my company."</p>
+            <span class="author">— Corporate Member</span>
+        </div>
+    </div>
+
+    <!-- Footer Injection -->
+    <div id="links-placeholder"></div>
+
+    <script>
+        // Placeholder Loaders
+        fetch("header.html").then(res => res.text()).then(data => { 
+            document.getElementById("header-placeholder").innerHTML = data; 
+        });
+        fetch("links.html").then(res => res.text()).then(data => { 
+            document.getElementById("links-placeholder").innerHTML = data; 
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIZLEAP - Home | The Business Pinnacle</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Updated to match your logo colors */
+            --primary-orange: #f15a24; 
+            --primary-blue: #0073bc;   
+            --primary-black: #000000;  
+            --light-bg: #ffffff;       
+            --dark-grey: #262626;      
+            --border-color: #eeeeee;   
+        }
+    
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { line-height: 1.6; color: var(--dark-grey); overflow-x: hidden; background-color: var(--light-bg); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; transition: 0.3s ease; }
+        ul { list-style: none; }
+        .section-padding { padding: 80px 0; }
+        .heading-center { text-align: center; margin-bottom: 50px; text-transform: uppercase; font-weight: 800; font-size: 32px; color: var(--primary-black); }
+        
+        /* Updated span to use your brand Orange */
+        .heading-center span { color: var(--primary-orange); }
+
+        /* --- 1. SCROLLER (HERO BANNER) --- */
+        .hero-slider { position: relative; height: 500px; overflow: hidden; background: #000; }
+        .slides { display: flex; height: 100%; transition: transform 0.6s ease-in-out; }
+        .slide { min-width: 100%; height: 100%; background-size: cover; background-position: center; display: flex; align-items: center; position: relative; }
+        .slide::before { content: ""; position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.6); }
+        .slide-content { position: relative; z-index: 2; color: white; padding-left: 10%; width: 70%; }
+        .slide-content h1 { font-size: 48px; line-height: 1.1; margin-bottom: 20px; font-weight: 900; text-transform: uppercase; }
+        .slide-content p { font-size: 18px; margin-bottom: 30px; font-weight: 300; letter-spacing: 1px; color: #ddd; }
+        .hero-btns { display: flex; gap: 15px; }
+        
+        /* Updated btn-red to Orange */
+        .btn-red { 
+            display: inline-block;
+            background: var(--primary-orange); 
+            color: white; 
+            padding: 14px 35px; 
+            border-radius: 4px; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            border: 2px solid var(--primary-orange); 
+            cursor: pointer; 
+            transition: 0.3s ease;
+        }
+        .btn-red:hover { 
+            background: white; 
+            color: var(--primary-orange); 
+            border-color: white;
+        }
+
+        /* --- 2. WHY BIZLEAP --- */
+        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; }
+        /* Using Blue for the Icons here */
+        .why-card i { font-size: 40px; color: var(--primary-blue); margin-bottom: 20px; }
+        .why-card h4 { font-weight: 800; text-transform: uppercase; margin-bottom: 10px; font-size: 14px; }
+        .why-card p { font-size: 13px; color: #666; }
+
+        /* --- 3. OUR NUMBERS --- */
+        .numbers-section { background: var(--primary-black); color: white; padding: 60px 0; border-bottom: 4px solid var(--primary-orange); }
+        .numbers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+        .num-item h2 { font-size: 42px; font-weight: 900; color: var(--primary-orange); }
+        .num-item p { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #aaa; }
+
+        /* --- 4. BENEFITS & ENQUIRY FORM --- */
+        .benefits-form-flex { display: flex; gap: 60px; align-items: flex-start; }
+        .benefits-list { flex: 1.2; }
+        .benefit-point { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 20px; border: 1px solid #f0f0f0; transition: 0.3s; }
+        .benefit-point:hover { border-color: var(--primary-blue); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .benefit-point i { color: var(--primary-blue); font-size: 20px; margin-top: 5px; }
+        .benefit-point h5 { font-weight: 800; text-transform: uppercase; margin-bottom: 5px; }
+        
+        /* Form container border and button updated to Orange */
+        .form-container { flex: 1; background: #fff; padding: 40px; border: 1px solid #eee; border-top: 5px solid var(--primary-orange); box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
+        .form-container input, .form-container select { width: 100%; padding: 14px; margin-bottom: 15px; border: 1px solid #ddd; background: #fdfdfd; }
+        .form-container button { width: 100%; background: var(--primary-orange); color: white; border: none; padding: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- 5. ATTENDING MEETINGS --- */
+        .format-section { background: #fafafa; }
+        .format-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .format-card { background: white; padding: 40px; border-bottom: 3px solid transparent; transition: 0.3s; }
+        .format-card:hover { border-bottom-color: var(--primary-orange); }
+        .format-card h4 { color: var(--primary-blue); text-transform: uppercase; margin-bottom: 15px; font-weight: 800; }
+        .veg-tag { display: inline-block; background: #2e7d32; color: white; padding: 4px 12px; font-size: 10px; font-weight: 700; border-radius: 50px; margin-top: 15px; }
+
+        /* --- 6. TESTIMONIALS --- */
+        .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .testi-card { background: white; padding: 40px; position: relative; border: 1px solid #eee; }
+        .testi-card i { position: absolute; top: 20px; right: 20px; font-size: 30px; color: #f0f0f0; }
+        .testi-card p { font-style: italic; font-size: 15px; color: #555; margin-bottom: 20px; line-height: 1.8; }
+        .testi-card h5 { font-weight: 800; text-transform: uppercase; color: var(--primary-orange); font-size: 13px; letter-spacing: 1px; }
+
+        /* Slider Nav */
+        .slider-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); padding: 0 30px; z-index: 10; }
+        .nav-btn { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.3); width: 50px; height: 50px; border-radius: 50%; cursor: pointer; backdrop-filter: blur(5px); }
+  
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- 1. SCROLLER (HERO BANNER) -->
+    <section class="hero-slider">
+        <div class="slides" id="slider">
+            <div class="slide" style="background-image: url('img_home1.jpg');">
+                <div class="slide-content">
+                    <h1>BIZLEAP:<br>The Business Pinnacle</h1>
+                    <p>Structured Growth platform for Corporates & Firms.</p>
+                    <div class="hero-btns">
+                        <a href="join.html" class="btn-red">Join Now</a>
+                        <a href="#enquiry" class="btn-red">Attend Meeting</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('img_home2.jpg');">
+                <div class="slide-content">
+                    <h1>Mood of EQUIPOISE</h1>
+                    <p>Executing prescribed actions with an even state of mind.</p>
+                    <div class="hero-btns">
+                        <a href="join.html" class="btn-red">Join Now</a>
+                        <a href="#enquiry" class="btn-red">Attend Meeting</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <button class="nav-btn" onclick="prevSlide()"><i class="fa fa-chevron-left"></i></button>
+            <button class="nav-btn" onclick="nextSlide()"><i class="fa fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- 2. WHY BIZLEAP -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="heading-center">Why <span>Bizleap?</span></h2>
+            <div class="why-grid">
+                <div class="why-card"><i class="fas fa-gem"></i><h4>100% Exclusivity</h4><p>Proprietary business category rights within your chapter.</p></div>
+                <div class="why-card"><i class="fas fa-link"></i><h4>Bridging Shores</h4><p>Structured Biz Connections based on trust and knowledge.</p></div>
+                <div class="why-card"><i class="fas fa-balance-scale"></i><h4>Ethical Growth</h4><p>Uniformity and respect at the core of business conduct.</p></div>
+                <div class="why-card"><i class="fas fa-brain"></i><h4>Learn to Grow</h4><p>Sharpening core skills through expert training workshops.</p></div>
+                <div class="why-card"><i class="fas fa-medal"></i><h4>Recognitions</h4><p>Milestone pins from Orange to Blue and beyond.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. OUR NUMBERS -->
+    <section class="numbers-section">
+        <div class="container">
+            <div class="numbers-grid">
+                <div class="num-item"><h2>7</h2><p>Core Beliefs</p></div>
+                <div class="num-item"><h2>200Cr+</h2><p>Top Pin Milestone</p></div>
+                <div class="num-item"><h2>100%</h2><p>Exclusivity</p></div>
+                <div class="num-item"><h2>12</h2><p>Month Tenure</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. BENEFITS & ENQUIRY FORM -->
+    <section class="section-padding" id="enquiry">
+        <div class="container">
+            <div class="benefits-form-flex">
+                <div class="benefits-list">
+                    <h2 style="margin-bottom: 10px; text-transform: uppercase; font-weight: 800;">Member <span>Benefits</span></h2>
+                    <p style="margin-bottom: 30px; color: #888;">Providing a growth platform for Corporates & Businesses.</p>
+                    
+                    <div class="benefit-point">
+                        <i class="fa fa-chevron-right"></i>
+                        <div>
+                            <h5>Ten-Talks Showcase</h5>
+                            <p>10 minutes of privilege to educate the entire chapter about your business.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-point">
+                        <i class="fa fa-chevron-right"></i>
+                        <div>
+                            <h5>Tag-a-Mate Policy</h5>
+                            <p>Collaborative client visits for meaningful business development.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-point">
+                        <i class="fa fa-chevron-right"></i>
+                        <div>
+                            <h5>Gratitude Value</h5>
+                            <p>Formalized appreciation for successful business deals passed within the network.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-container">
+                    <h3 style="margin-bottom: 25px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Request <span>Invitation</span></h3>
+                    <form>
+                        <input type="text" placeholder="Authorized Rep Name*" required>
+                        <input type="text" placeholder="Company Name*" required>
+                        <select required>
+                            <option value="">Business Category*</option>
+                            <option>Finance</option><option>IT & Tech</option><option>Real Estate</option><option>Manufacturing</option>
+                        </select>
+                        <input type="tel" placeholder="Mobile Number*" required>
+                        <button type="submit">Attend A Meeting</button>
+                    </form>
+                    <p style="font-size: 10px; color: #999; margin-top: 15px; text-align: center;">*Membership subject to background verification and category availability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ATTENDING MEETINGS -->
+    <section class="section-padding format-section">
+        <div class="container">
+            <h2 class="heading-center">Meeting <span>Formats</span></h2>
+            <div class="format-grid">
+                <div class="format-card">
+                    <h4>Dinner Meeting</h4>
+                    <p>1st Week of the month. Networking, Business, and Dinner sessions starting from 6:30 PM.</p>
+                    <span class="veg-tag">Pure Vegetarian Menu</span>
+                </div>
+                <div class="format-card">
+                    <h4>Breakfast Meeting</h4>
+                    <p>3rd Week of the month. Networking, Business, and Breakfast sessions starting from 7:00 AM.</p>
+                    <span class="veg-tag">Jain/Vaishnav Options</span>
+                </div>
+                <div class="format-card">
+                    <h4>Training Workshop</h4>
+                    <p>Mandatory 5th meeting of every quarter focused on sharpening business functions and soft skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. TESTIMONIALS -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="heading-center">The <span>Voice</span> of Growth</h2>
+            <div class="testi-grid">
+                <div class="testi-card">
+                    <i class="fas fa-quote-right"></i>
+                    <p>"Performing my business duties in the mood of Equipoise, detached from the results, has given me the even state of mind required for high-level decision making."</p>
+                    <h5>- Chapter President</h5>
+                </div>
+                <div class="testi-card">
+                    <i class="fas fa-quote-right"></i>
+                    <p>"Bizleap is not just a network; it's a fraternity. The 'Learn to Grow' workshops by IIM faculty have brought a 360-degree turnaround in my firm."</p>
+                    <h5>- Master Blaster Member</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="links-placeholder"></div>
+
+    <script>
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const slides = document.querySelectorAll('.slide');
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        setInterval(nextSlide, 6000);
+
+        // Simulated fetch placeholders
+        fetch("header.html").then(res => res.text()).then(data => { document.getElementById("header-placeholder").innerHTML = data; });
+
+        fetch("links.html").then(res => res.text()).then(data => { document.getElementById("links-placeholder").innerHTML = data; });
+    </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIZLEAP Header</title>
+ 
+    <!-- External Dependencies -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ 
+    <style>
+        :root {
+            /* Updated to Brand Colors */
+            --primary-orange: #f15a24;
+            --primary-blue: #0073bc;
+            --primary-black: #1a1a1a;
+        }
+ 
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; transition: 0.3s ease; }
+ 
+        /* --- TOP BAR --- */
+        .top-bar { background-color: var(--primary-black); color: white; padding: 10px 0; font-size: 11px; letter-spacing: 1px; }
+        .top-links { display: flex; justify-content: flex-end; align-items: center; gap: 25px; }
+        
+        .login-dropdown { position: relative; cursor: pointer; padding: 5px 10px; border-radius: 4px; }
+        .login-dropdown:hover { background: rgba(255,255,255,0.1); }
+
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            right: 0; 
+            top: 100%; 
+            background-color: #fff; /* Changed background to white for a cleaner look */
+            min-width: 220px; 
+            z-index: 3000; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+        }
+
+        .dropdown-content a { 
+            color: var(--primary-black); 
+            padding: 12px 16px; 
+            display: block; 
+            border-bottom: 1px solid #f0f0f0; 
+            font-size: 12px; 
+            font-weight: 600;
+        }
+
+        /* FIXED: Changed from Red to Brand Orange/Blue */
+        .dropdown-content a:hover { 
+            background: var(--primary-orange); 
+            color: white; 
+        }
+        
+        .login-dropdown:hover .dropdown-content { display: block; }
+ 
+        /* --- MAIN NAV --- */
+        header { background: white; padding: 25px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo svg { width: 45px; }
+        .logo-text-group { display: flex; align-items: center; }
+        .logo-divider { width: 1px; height: 30px; background: #eee; margin: 0 15px; }
+        .logo-city { font-size: 20px; font-weight: 300; color: var(--primary-black); }
+        
+        .brand-name { font-size: 24px; font-weight: 800; }
+        .biz { color: var(--primary-orange); }
+        .leap { color: var(--primary-blue); }
+ 
+        nav ul { display: flex; list-style: none; align-items: center; gap: 20px; }
+        nav ul li { display: flex; align-items: center; }
+        
+        nav ul li a {
+            color: var(--primary-black);
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 5px 0;
+            position: relative;
+        }
+ 
+        /* ACTIVE & HOVER STYLE - Changed to Orange */
+        nav ul li a.active, 
+        nav ul li a:hover {
+            color: var(--primary-orange) !important;
+        }
+
+        /* Modern underline effect */
+        nav ul li a::after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: 0; left: 0; background: var(--primary-orange); transition: 0.3s;
+        }
+        nav ul li a:hover::after, nav ul li a.active::after { width: 100%; }
+ 
+        nav ul li:not(:last-child)::after { content: ""; margin: 0 5px; } /* Cleaned up the separator */
+    </style>
+</head>
+<body>
+ 
+<div class="top-bar">
+    <div class="container top-links">
+        <!-- <span>BIZLEAP International</span> -->
+        <div class="login-dropdown">
+            <span>Account Login <i class="fa fa-caret-down"></i></span>
+            <div class="dropdown-content">
+                <!-- Links updated to look for your files -->
+                <a href="login.html">BIZLEAP Connect Login</a>
+                <a href="sign_up.html">Member Registration</a>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<header>
+    <div class="container nav-content">
+        <a href="index.html" class="logo">
+            <!-- Official SVG Logo added here -->
+            <svg viewBox="0 0 100 60">
+                <path d="M10 50 L50 10 L50 35 Z" fill="#f15a24" /> 
+                <path d="M50 10 L90 50 L50 35 Z" fill="#0073bc" /> 
+                <path d="M40 20 L50 10 L60 20 Z" fill="#fbb03b" /> 
+                <path d="M70 40 L90 50 L75 30 Z" fill="#8cc63f" /> 
+            </svg>
+            <div class="logo-text-group">
+                <span class="brand-name"><span class="biz">BIZ</span><span class="leap">Leap</span></span>
+                <div class="logo-divider"></div>
+                <span class="logo-city">Nagpur</span>
+            </div>
+        </a>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="join.html">Join Us </a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+ 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let path = window.location.pathname;
+        let page = path.split("/").pop();
+        
+        if (page === "" || page === "index.html") {
+            page = "index.html";
+        }
+
+        const menuLinks = document.querySelectorAll('#nav-menu a');
+
+        menuLinks.forEach(link => {
+            const linkHref = link.getAttribute('href');
+            if (linkHref === page) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    });
+</script>
+ 
+</body>
+</html>

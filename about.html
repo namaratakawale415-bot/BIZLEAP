@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | BIZLEAP - The Business Pinnacle</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-orange: #f15a24; 
+            --primary-blue: #0073bc;   
+            --primary-black: #000000; 
+            --dark-grey: #333;
+            --white: #ffffff;
+            --soft-grey: #f4f4f4;
+        }
+    
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { color: var(--dark-grey); line-height: 1.6; background-color: #fff; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* --- BRANDING LINE STYLE --- */
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 30px; text-transform: uppercase; font-weight: 800; color: var(--primary-black); }
+        .section-header .line { width: 80px; height: 4px; background: var(--primary-orange); margin: 15px auto; }
+
+        /* --- BANNER --- */
+        .title-banner { 
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img_about1.jpg');
+            background-size: cover; background-position: center; padding: 80px 0; color: white; text-align: center;
+            border-bottom: 5px solid var(--primary-orange);
+        }
+        .title-banner h1 { font-size: 42px; text-transform: uppercase; font-weight: 800; letter-spacing: 2px; }
+
+        /* --- 1. WHAT IS BIZLEAP --- */
+        .intro-section { padding: 80px 0; }
+        .intro-flex { display: flex; gap: 60px; align-items: center; }
+        .intro-text { flex: 1.2; }
+
+        /* Adjusted intro text header to match the centered style */
+        .intro-text .section-header { text-align: left; }
+        .intro-text .section-header .line { margin: 15px 0; }
+        .intro-text p { margin-bottom: 15px; font-size: 15px; text-align: justify; color: #555; }
+
+        .intro-tag { 
+            color: var(--primary-orange); 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            font-size: 15px; 
+            letter-spacing: 2px; 
+            display: block; 
+            margin-top: 30px; 
+            margin-bottom: 10px; 
+            padding: 0; 
+        }
+
+        .intro-img { flex: 1; }
+        .intro-img img { width: 100%; border-radius: 4px; box-shadow: 20px 20px 60px rgba(0,0,0,0.05); }
+
+      
+
+        /* --- 2. MISSION, VISION, GOAL --- */
+        .mv-section { background-color: #fdfdfd; padding: 80px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .mv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .mv-card { padding: 40px; background: #fff; border: 1px solid #f0f0f0; text-align: center; transition: 0.3s; border-bottom: 3px solid transparent; }
+        .mv-card:hover { border-color: var(--primary-blue); box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-bottom-color: var(--primary-blue); }
+        .mv-card i { font-size: 35px; color: var(--primary-orange); margin-bottom: 20px; }
+        .mv-card h3 { text-transform: uppercase; font-weight: 800; margin-bottom: 15px; font-size: 18px; color: var(--primary-black); }
+        .mv-card p { font-size: 13px; color: #666; line-height: 1.8; }
+
+        /* --- 3. 7 CORE BELIEFS --- */
+        /* .core-beliefs { padding: 100px 0; text-align: center; } */
+        .core-beliefs { padding: 100px 0 180px 0; text-align: center; }
+        .beliefs-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 60px 40px; 
+            text-align: left; 
+            max-width: 1100px; 
+            margin: 0 auto;
+        }
+        .belief-item { display: flex; align-items: flex-start; gap: 25px; }
+        .number-box {
+            min-width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--primary-blue);
+            position: relative;
+            background: #fff;
+            border: 1px solid #f0f0f0;
+        }
+        .number-box::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: 20px;
+            height: 20px;
+            border-top: 4px solid var(--primary-orange);
+            border-left: 4px solid var(--primary-orange);
+        }
+        .number-box::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            width: 20px;
+            height: 20px;
+            border-bottom: 4px solid var(--primary-orange);
+            border-right: 4px solid var(--primary-orange);
+        }
+        .belief-content h3 { 
+            font-size: 20px; font-weight: 800; color: var(--primary-black); 
+            text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;
+        }
+        .belief-content p { font-size: 14px; color: #777; font-weight: 400; line-height: 1.6;  }
+
+        /* --- 4. FIND A MEMBER --- */
+    
+        .find-member { padding: 80px 0; background-color: var(--primary-black); color: white; text-align: center; border-top: 5px solid var(--primary-blue); }
+        .search-container { 
+            background: #111; 
+            padding: 15px; 
+            max-width: 600px; 
+            margin: 0 auto; 
+            display: flex; 
+            gap: 4px; 
+            align-items: center;
+        }
+        .search-container select, .search-container input, .btn-search { 
+            flex: 1; 
+            padding: 6px 10px; 
+            border: 1px solid #444; 
+            background: transparent; 
+            color: white; 
+            outline: none;
+            height: 40px; 
+            font-size: 14px; 
+        }
+        .search-container select option { background: #000; }
+        .btn-search { 
+            background: var(--primary-orange); 
+            color: white; 
+            border: none; 
+            font-weight: 800; 
+            cursor: pointer; 
+            text-transform: uppercase; 
+            transition: 0.3s;
+        }
+        .btn-search:hover { background: var(--primary-blue); color: #fff; }
+
+        @media (max-width: 992px) {
+            .intro-flex, .mv-grid, .beliefs-grid, .search-container { grid-template-columns: 1fr; }
+            .intro-img { display: none; }
+            .search-container { flex-direction: column; }
+            .btn-search { padding: 15px; }
+        }
+
+        @media   (min-width: 992px) {
+    .core-beliefs {
+        margin-bottom: 160px;
+    }
+    .find-member {
+        margin-top: 160px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <section class="title-banner">
+        <div class="container">
+            <h1>About Our Foundation</h1>
+        </div>
+    </section>
+
+    <!-- 1. WHAT IS BIZLEAP -->
+    <section class="container intro-section">
+        <div class="intro-flex">
+            <div class="intro-text">
+                <span class="intro-tag">Exclusive Corporate Community</span>
+                <div class="section-header">
+                    <h2>What is BizLeap?</h2>
+                    <div class="line"></div>
+                </div>
+                <p>Bizleap is a premier business networking and growth platform where structured development is achieved through qualified training, workshops, and high-impact events.</p>
+                <p><strong>Membership is restricted to Corporates, Companies, Firms, and Professionals only.</strong> An individual person is not eligible for membership; every member must represent an entity as an authorised top-level person (Proprietor, Director, or Partner).</p>
+                <p>Founded by <strong>Aayush Lohia</strong>, BizLeap provides 100% category exclusivity, ensuring a competitive-free environment for members to develop mutual relationships based on trust and knowledge.</p>
+            </div>
+            <div class="intro-img">
+                <img src="img_links.jpg" alt="BizLeap Strategy">
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. MISSION, VISION, GOAL -->
+    <section class="mv-section">
+        <div class="container">
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Our Mission</h3>
+                    <p>To help members increase their business through a structured, positive referral marketing program that enables them to develop long-term, meaningful relationships.</p>
+                </div>
+                <div class="mv-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Our Vision</h3>
+                    <p>To engage entrepreneurs in a mood of goodness, performing business activities as a service to the divine, turning material growth into spiritually guided progress.</p>
+                </div>
+                <div class="mv-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Our Objective</h3>
+                    <p>To provide a structured platform where businesses achieve growth through verified Peer-to-Peer meetings, qualified training, and global networking initiatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 7 CORE BELIEFS -->
+    <section class="container core-beliefs">
+        <div class="section-header">
+            <h2>Our 7 Core Beliefs</h2>
+            <div class="line"></div>
+        </div>
+        <div class="beliefs-grid">
+            <div class="belief-item">
+                <div class="number-box">1</div>
+                <div class="belief-content">
+                    <h3>EQUIPOISE</h3>
+                    <p>Performing responsibilities in an even state of mind, detached from success or failure, as per BG 2.47-2.48.</p>
+                </div>
+            </div>
+            <div class="belief-item">
+                <div class="number-box">2</div>
+                <div class="belief-content">
+                    <h3>TRUST</h3>
+                    <p>Conducting business with 100% honesty and upholding sincerity in every professional delivery.</p>
+                </div>
+            </div>
+            <div class="belief-item">
+                <div class="number-box">3</div>
+                <div class="belief-content">
+                    <h3>ETHICAL PRACTICES</h3>
+                    <p>Adopting high principles of uniformity and respect at the core of every business transaction.</p>
+                </div>
+            </div>
+            <div class="belief-item">
+                <div class="number-box">4</div>
+                <div class="belief-content">
+                    <h3>BRIDGING SHORES</h3>
+                    <p>Connecting professional contacts to add mutual value, acting as a bridge between two shores.</p>
+                </div>
+            </div>
+            <div class="belief-item">
+                <div class="number-box">5</div>
+                <div class="belief-content">
+                    <h3>LEARN TO GROW</h3>
+                    <p>Embracing continuous learning to sharpen core skills and equip your team with knowledge.</p>
+                </div>
+            </div>
+            <div class="belief-item">
+                <div class="number-box">6</div>
+                <div class="belief-content">
+                    <h3>PROPRIETARY</h3>
+                    <p>Taking full ownership and accountability for your actions and their results at all fronts.</p>
+                </div>
+            </div>
+            <div class="belief-item">
+                <div class="number-box">7</div>
+                <div class="belief-content">
+                    <h3>GRATITUDE</h3>
+                    <p>Showing thankfulness to fellow members to boost morale and build strong long-term relationships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FIND A MEMBER -->
+    <section class="find-member">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color:white">Find a Member</h2>
+                <div class="line"></div>
+            </div>
+            <div class="search-container">
+                <select>
+                    <option>Select City</option>
+                    <option>Nagpur</option>
+                    <option>Mumbai</option>
+                    <option>Pune</option>
+                </select>
+                <select>
+                    <option>Select Chapter</option>
+                    <option>Aspire</option>
+                    <option>Inspiration</option>
+                    <option>Positivity</option>
+                </select>
+                <input type="text" placeholder="Search by Business Category (e.g. IT, Finance)">
+                <button class="btn-search">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="links-placeholder"></div>
+
+    <script>
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => { document.getElementById("header-placeholder").innerHTML = data; });
+
+        fetch("links.html")
+            .then(res => res.text())
+            .then(data => { document.getElementById("links-placeholder").innerHTML = data; });
+    </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapters Forming | BIZLEAP</title>
+    
+    <!-- Google Fonts & Font Awesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- RESET & BASE STYLES --- */
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --primary-orange:#f15a24;
+    --primary-blue:#0073bc;
+    --pure-black:#000000;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    line-height:1.7;
+    background-color:#fdfdfd;
+    color:#333;
+}
+
+/* Balanced spacing below header */
+#header-placeholder{
+    display:block;
+    margin-bottom:60px;
+}
+
+.container{
+    max-width:1000px;
+    margin:0 auto;
+    padding:0 20px 80px;
+    text-align:center;
+}
+
+/* --- TYPOGRAPHY --- */
+h1{
+    font-size:42px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:-1px;
+    color:var(--pure-black);
+    margin-bottom:15px;
+}
+
+.red{
+    color:var(--primary-orange);
+}
+
+.subtitle{
+    font-size:18px;
+    color:#666;
+    max-width:700px;
+    margin:0 auto 50px;
+    font-weight:500;
+}
+
+/* --- CHAPTER CARD DESIGN --- */
+.chapter-card{
+    background:#ffffff;
+    border-radius:8px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.05);
+    padding:50px;
+    margin-top:20px;
+    border-top:6px solid var(--primary-orange);
+    text-align:left;
+}
+
+.feature-item{
+    display:flex;
+    align-items:flex-start;
+    margin-bottom:30px;
+}
+
+.feature-item i{
+    font-size:28px;
+    color:var(--primary-blue);
+    margin-right:20px;
+    margin-top:5px;
+}
+
+.feature-text h3{
+    font-size:20px;
+    font-weight:800;
+    text-transform:uppercase;
+    color:var(--pure-black);
+    margin-bottom:8px;
+}
+
+.feature-text p{
+    font-size:15px;
+    color:#555;
+}
+
+/* --- INFO BANNER --- */
+.cta-section{
+    margin-top:60px;
+    padding:40px;
+    background:var(--pure-black);
+    border-radius:8px;
+    color:#fff;
+    border-bottom:5px solid var(--primary-blue);
+}
+
+.cta-section p{
+    font-weight:600;
+    margin-bottom:25px;
+    font-size:18px;
+}
+
+.btn-status{
+    display:inline-block;
+    background-color:var(--primary-orange);
+    color:#fff;
+    padding:15px 40px;
+    border-radius:50px;
+    font-weight:800;
+    text-transform:uppercase;
+    font-size:14px;
+    letter-spacing:1px;
+    cursor:default;
+    user-select:none;
+}
+
+/* --- RESPONSIVE --- */
+@media(max-width:768px){
+    h1{font-size:32px;}
+    .chapter-card{padding:30px;}
+}
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <div class="container">
+        <h1>Chapters <span class="red">Forming</span></h1>
+        <p class="subtitle">Bizleap expands through exclusive business groups known as Chapters across India and Overseas, creating a global network of excellence.</p>
+        
+        <div class="chapter-card">
+            <div class="feature-item">
+                <i class="fa-solid fa-gem"></i>
+                <div class="feature-text">
+                    <h3>Chapter Identity</h3>
+                    <p>Every Chapter carries a unique identity and spirit. We name our groups based on <strong>Life & Inspiration, Positivity, Flowers, or Earth Stones</strong>.</p>
+                </div>
+            </div>
+
+            <div class="feature-item" style="margin-bottom: 0;">
+                <i class="fa-solid fa-users-gear"></i>
+                <div class="feature-text">
+                    <h3>The Chapter Board</h3>
+                    <p>Leadership is the core of our success. Each chapter is led by a dedicated Board including a <strong>President, Vice-President, and Treasurer</strong>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW UPDATED BANNER -->
+        <div class="cta-section">
+            <p>Ready to lead the business pinnacle in your city?</p>
+            <div class="btn-status">
+                <i class="fa-solid fa-rocket" style="margin-right: 8px;"></i> Stay Tuned for Updates
+            </div>
+        </div>
+    </div>
+
+    <div id="links-placeholder"></div>
+
+    <script>
+        fetch("header.html").then(res => res.text()).then(data => { 
+            document.getElementById("header-placeholder").innerHTML = data; 
+        });
+        fetch("links.html").then(res => res.text()).then(data => { 
+            document.getElementById("links-placeholder").innerHTML = data; 
+        });
+    </script>
+    
+</body>
+</html>
